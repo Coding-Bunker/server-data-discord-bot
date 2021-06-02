@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import requests
 from dotenv import dotenv_values
+import os
 
 #caricamento varibili d'ambiente
 config = dotenv_values(".env")
@@ -14,8 +15,8 @@ async def on_ready():
         
     sum = 0
       
-    channel = client.get_channel(int(config["CHANNEL_ID"]))
-    guild = client.get_guild(int(config["GUILD_ID"]))
+    channel = client.get_channel(int(os.getenv('CHANNEL_ID', config["CHANNEL_ID"])))
+    guild = client.get_guild(int(os.getenv('GUILD_ID', config["GUILD_ID"])))
 
     #esclude i bot dalla conta dei membri
     members = await guild.fetch_members().flatten()
@@ -31,4 +32,4 @@ async def on_message(message):
         return
 
 #chiamta procedura d'avvio del bot
-client.run(config["DISCORD_BOT_KEY"])
+client.run(os.getenv('DISCORD_BOT_KEY', config["DISCORD_BOT_KEY"]))
