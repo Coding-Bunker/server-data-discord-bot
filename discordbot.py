@@ -1,15 +1,13 @@
 import discord
 from discord.ext import commands
 import requests
-#from dotenv import dotenv_values
 import os
 import time
 
 def current_milli_time():
     return round(time.time() * 1000)
 
-#caricamento varibili d'ambiente
-#config = dotenv_values(".env")
+update_time = 300000
 
 #permessi per poter effettuare qualsiasi azione
 client = commands.Bot(command_prefix=">", intents = discord.Intents.all())
@@ -25,7 +23,7 @@ async def on_ready():
     guild = client.get_guild(int(os.environ['GUILD_ID']))
 
     while(True):
-        if(current_milli_time() - time) >= 5000:
+        if(current_milli_time() - time) >= update_time:
             #esclude i bot dalla conta dei membri
             members = await guild.fetch_members().flatten()
             for m in members:
@@ -34,6 +32,7 @@ async def on_ready():
                     
             await channel.send('Il numero di utenti è ' + str(sum))
             time = current_milli_time()
+            sum = 0
     
 @client.event
 async def on_message(message):
