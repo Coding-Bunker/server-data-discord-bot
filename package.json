@@ -1,0 +1,22 @@
+{
+  "name": "server-data-discord-bot",
+  "version": "1.0.0",
+  "description": "Coding Bunker Data Discord Bot",
+  "main": "discordbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coding-Bunker/server-data-discord-bot.git"
+  },
+  "author": "Coding Bunker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Coding-Bunker/server-data-discord-bot/issues"
+  },
+  "homepage": "https://github.com/Coding-Bunker/server-data-discord-bot#readme",
+  "engines": {
+    "node": "14.x"
+  }
+}
