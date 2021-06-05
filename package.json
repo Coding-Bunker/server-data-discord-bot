@@ -18,5 +18,11 @@
   "homepage": "https://github.com/Coding-Bunker/server-data-discord-bot#readme",
   "engines": {
     "node": "14.x"
+  },
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  },
+  "devDependencies": {
+    "datocms-client": "^3.4.10"
   }
 }
